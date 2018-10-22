@@ -1,0 +1,8 @@
+version: '3'
+services:
+  amazonlinux:
+    build: .
+    command: bash -c "python3 -m pip install -r requirements.txt -t /pipoutput && zip -r /zipoutput/lambda.zip /pipoutput/*"
+    volumes:
+    - ./pipoutput:/pipoutput
+    - ./zipoutput:/zipoutput
